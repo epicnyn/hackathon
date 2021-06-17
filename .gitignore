@@ -70,7 +70,8 @@ nosetests.xml
 coverage.xml
 
 # Translations
-*.mo
+*.mo.env.staging
+
 *.pot
 
 # Sphinx documentation
@@ -88,4 +89,5 @@ __pycache__/
 local_settings.py
 
 .env
+venv
 db.sqlite3
