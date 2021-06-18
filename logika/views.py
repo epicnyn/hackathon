@@ -1,10 +1,10 @@
+from django.db.models import Q
 from django.db import connection
 from django_filters import rest_framework as filters
 from rest_framework import generics
 from rest_framework import permissions
 from logika import serializers
 from django.contrib.auth.models import User
-
 
 from .models import Article, Comment, Category
 from .permissions import IsOwnerOrReadOnly
@@ -20,6 +20,14 @@ class ArticleListView(generics.ListAPIView):
         response = super().dispatch(request, *args, **kwargs)
         print(f'Queries Counted: {len(connection.queries)}')
         return response
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search = self.request.query_params.get('search', '')
+        if search:
+            queryset = queryset.filter(
+                Q(title__icontains=search) | Q(id__icontains=search) | Q(price__icontains=search))
+        return queryset
 
 
 class ArticleCreateView(generics.CreateAPIView):
