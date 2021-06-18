@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_yasg',
     'ckeditor_uploader',
+    'likes',
+    'project_api',
+    
 
     # приложения добавляем
     'logika',
