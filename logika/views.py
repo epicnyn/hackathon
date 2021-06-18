@@ -6,8 +6,8 @@ from rest_framework import permissions
 from logika import serializers
 from django.contrib.auth.models import User
 
-from .models import Article, Comment, Category
-from .permissions import IsOwnerOrReadOnly
+from logika.models import Article, Comment, Category
+from logika.permissions import IsOwnerOrReadOnly
 
 
 class ArticleListView(generics.ListAPIView):
