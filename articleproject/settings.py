@@ -46,9 +46,6 @@ INSTALLED_APPS = [
     'drf_yasg',
     'ckeditor_uploader',
     'likes',
-    'project_api',
-    
-
     # приложения добавляем
     'logika',
     'user',
