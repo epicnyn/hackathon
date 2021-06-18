@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-from .models import Article, Comment, Category, ArticleImages
+from logika.models import Article, Comment, Category, ArticleImages
 
 
 class CategorySerializer(serializers.ModelSerializer):
